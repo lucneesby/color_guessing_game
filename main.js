@@ -1,16 +1,29 @@
-var colors = [
-"rgb(255, 0, 0)",
-"rgb(255, 255, 0)",
-"rgb(0, 255, 0)",
-"rgb(0, 255, 255)",
-"rgb(0, 0, 255)",
-"rgb(255, 0, 255)"
-]
 
+
+var colors = generateRandomColors(6);
 var squares = document.querySelectorAll(".square");
 var pickedColor	= pickColor();
 var colorDisplay = document.querySelector("#colorDisplay");
 var messageDisplay = document.querySelector("#message");
+var h1 = document.querySelector("h1");
+var resetButton = document.querySelector("#reset");
+
+resetButton.addEventListener("click", function(){
+	//change button to "New Colors"
+	resetButton.textContent = "New Colors";
+	//generate all colors
+	colors = generateRandomColors(6);
+	//pick new random color of array
+	pickedColor = pickColor();
+	//change color display to math picked color
+	colorDisplay.textContent = pickedColor;
+	//change colors of squares
+	for (i=0;i<squares.length;i++) {
+		squares[i].style.backgroundColor = colors[i];
+	}
+	//reset h1
+	h1.style.backgroundColor = "#232323";
+});
 
 colorDisplay.textContent = pickedColor;
 
@@ -26,6 +39,9 @@ for(i=0; i<squares.length; i++) {
 		if (clickedBackground === pickedColor) {
 			messageDisplay.textContent = "Correct";
 			changeColor(pickedColor);
+			h1.style.backgroundColor = "green";
+			//change button to "play again?"
+			resetButton.textContent = "Play Again?";
 		} else {
 			this.style.backgroundColor = "#232323";
 			messageDisplay.textContent = "Try Again";
@@ -48,4 +64,28 @@ function pickColor() {
 	var randomNum = Math.floor(Math.random() * colors.length);
 	return colors[randomNum];
 }
+
+function generateRandomColors(num) {
+	//make array
+	var arr = [];
+	//repeat num times
+	for (i=0;i<num;i++) {
+		arr.push(randomColor());
+		//add num random colors to array
+	}
+	//return array at very end
+	return arr;
+}
+
+function randomColor() {
+	//get a "red" from 0 - 255
+	var red = Math.floor(Math.random() * 256);
+	//get a "green" from 0 - 255
+	var green = Math.floor(Math.random() * 256);
+	//get a "blue" from 0 - 255
+	var blue = Math.floor(Math.random() * 256);
+	return "rgb(" + red + ", " + green + ", " + blue +")";
+}
+
+
 
