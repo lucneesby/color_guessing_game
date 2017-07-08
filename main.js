@@ -43,7 +43,7 @@ resetButton.addEventListener("click", function(){
 	//change button to "New Colors"
 	resetButton.textContent = "New Colors";
 	//generate all colors
-	colors = generateRandomColors(6);
+	colors = generateRandomColors(numSquares);
 	//pick new random color of array
 	pickedColor = pickColor();
 	//change color display to math picked color

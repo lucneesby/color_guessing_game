@@ -9,6 +9,7 @@ body {
 	padding-bottom: 30%;
 	float: left;
 	margin: 1.66%;
+	border-radius: 15%;
 }
 
 #container {
@@ -22,17 +23,46 @@ h1 {
 	background-color: steelblue;
 	margin: 0;
 	font-weight: normal;
+	line-height: 1.1;
+	padding:20px 0;
+	text-transform: uppercase;
 }
 
 
 #stripe {
-	background-color:white;
-	height:35px;
+	background-color: white;
+	height: 35px;
 	text-align: center;
 	color: black;
 }
 
+#colorDisplay {
+	font-size: 200%;
+}
+
+#message {
+	width:20%;
+	display: inline-block;
+}
 .selected {
-	background: blue;
+	color: white;
+	background-color: steelblue;
+}
+
+button {
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	height:100%;
+	font-weight: 700;
+	letter-spacing: 1px;
+	font-size: inherit;
+	color: steelblue;
+	transition: all 0.3s;
+}
+
+button:hover {
+	color: white;
+	background-color: steelblue;
 }
 
