@@ -64,6 +64,7 @@ function reset() {
 	//change color display to math picked color
 	colorDisplay.textContent = pickedColor;
 	//change colors of squares
+	messageDisplay.textContent = "";
 	for (i=0;i<squares.length;i++) {
 		if(colors[i]) {
 			squares[i].style.display = "block";
